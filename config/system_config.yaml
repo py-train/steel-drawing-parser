@@ -1,0 +1,52 @@
+extraction:
+  min_component_size: 20
+  dimension_tolerance: 0.2
+  confidence_threshold: 0.5
+  supported_units:
+    - mm
+    - in
+    - ft
+    - m
+  material_standards:
+    - ASTM
+    - AISC
+    - EN
+    - ISO
+  dpi: 300
+
+web_interface:
+  host: 127.0.0.1
+  port: 7860
+  share: false
+  debug: false
+  max_file_size_mb: 100
+  allowed_file_types:
+    - .pdf
+  enable_component_management: true
+
+cli_interface:
+  input_files: []
+  output_directory: output
+  batch_mode: false
+  verbose: false
+  format: csv
+  config_file: null
+
+api_interface:
+  host: 127.0.0.1
+  port: 8000
+  enable_docs: true
+  rate_limit_per_minute: 60
+  max_concurrent_requests: 10
+
+logging:
+  log_level: DEBUG
+  log_dir: logs
+  max_log_size_mb: 10
+  backup_count: 5
+  enable_console_logging: true
+  enable_file_logging: true
+  separate_error_log: true
+
+part_types_config_file: part_types.json
+enable_extensibility: true

@@ -1,0 +1,147 @@
+{
+  "component_types": [
+    {
+      "name": "beam",
+      "display_name": "I-Beam/H-Beam",
+      "description": "Structural steel beams including I-beams and H-beams",
+      "detection_method": "extract_beams",
+      "detection_params": {
+        "min_size": 100,
+        "confidence_threshold": 0.7,
+        "aspect_ratio_range": [3.0, 20.0],
+        "angle_tolerance": 15.0,
+        "line_grouping_distance": 20,
+        "custom_params": {
+          "min_parallel_lines": 2,
+          "horizontal_bias": true
+        }
+      },
+      "validation_rules": [
+        "check_beam_proportions",
+        "validate_beam_dimensions"
+      ],
+      "csv_columns": [
+        "beam_depth",
+        "flange_width",
+        "web_thickness",
+        "flange_thickness"
+      ],
+      "enabled": true
+    },
+    {
+      "name": "column",
+      "display_name": "Structural Column",
+      "description": "Vertical structural columns including HSS and W-shapes",
+      "detection_method": "extract_columns",
+      "detection_params": {
+        "min_size": 80,
+        "confidence_threshold": 0.7,
+        "aspect_ratio_range": [1.5, 8.0],
+        "angle_tolerance": 15.0,
+        "line_grouping_distance": 15,
+        "custom_params": {
+          "min_parallel_lines": 2,
+          "vertical_bias": true
+        }
+      },
+      "validation_rules": [
+        "check_column_proportions",
+        "validate_column_dimensions"
+      ],
+      "csv_columns": [
+        "column_depth",
+        "column_width",
+        "wall_thickness"
+      ],
+      "enabled": true
+    },
+    {
+      "name": "plate",
+      "display_name": "Steel Plate",
+      "description": "Connection plates, gusset plates, and base plates",
+      "detection_method": "extract_plates",
+      "detection_params": {
+        "min_size": 50,
+        "confidence_threshold": 0.6,
+        "aspect_ratio_range": [1.2, 5.0],
+        "angle_tolerance": 10.0,
+        "line_grouping_distance": 20,
+        "custom_params": {
+          "contour_based": true
+        }
+      },
+      "validation_rules": [
+        "check_plate_thickness",
+        "validate_plate_dimensions"
+      ],
+      "csv_columns": [
+        "plate_length",
+        "plate_width",
+        "plate_thickness"
+      ],
+      "enabled": true
+    },
+    {
+      "name": "bolt",
+      "display_name": "Structural Bolt",
+      "description": "High-strength structural bolts",
+      "detection_method": "extract_bolts",
+      "detection_params": {
+        "min_size": 10,
+        "confidence_threshold": 0.8,
+        "aspect_ratio_range": [0.8, 1.2],
+        "angle_tolerance": 5.0,
+        "line_grouping_distance": 5,
+        "custom_params": {
+          "circle_detection": true,
+          "min_radius": 5,
+          "max_radius": 50
+        }
+      },
+      "validation_rules": [
+        "check_bolt_size",
+        "validate_bolt_grade"
+      ],
+      "csv_columns": [
+        "bolt_diameter",
+        "bolt_length",
+        "bolt_grade"
+      ],
+      "enabled": false
+    },
+    {
+      "name": "weld",
+      "display_name": "Structural Weld",
+      "description": "Fillet welds, groove welds, and other connections",
+      "detection_method": "extract_welds",
+      "detection_params": {
+        "min_size": 20,
+        "confidence_threshold": 0.6,
+        "aspect_ratio_range": [1.0, 10.0],
+        "angle_tolerance": 30.0,
+        "line_grouping_distance": 10,
+        "custom_params": {
+          "symbol_detection": true,
+          "line_pattern": true
+        }
+      },
+      "validation_rules": [
+        "check_weld_size",
+        "validate_weld_type"
+      ],
+      "csv_columns": [
+        "weld_size",
+        "weld_length",
+        "weld_type"
+      ],
+      "enabled": false
+    }
+  ],
+  "default_types": [
+    "beam",
+    "column",
+    "plate",
+    "bolt",
+    "weld"
+  ]
+}
