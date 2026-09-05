@@ -1,29 +1,27 @@
 # Core dependencies for Steel Drawing Parser
 
 # PDF processing
-PyMuPDF
+PyMuPDF==1.23.14
 
 # Image processing and computer vision
-opencv-python
-Pillow
-numpy
+opencv-python==4.8.1.78
+Pillow==10.1.0
+numpy==1.24.3
 
 # Web interface
-gradio
+gradio==4.7.1
 
 # Testing
-pytest
-hypothesis
+pytest==7.4.3
+hypothesis==6.88.1
 
 # Data handling
-pandas
+pandas==2.1.3
 
 # Logging and utilities
-python-dotenv
+python-dotenv==1.0.0
 
 # Development dependencies
-black
-flake8
-mypy
-
-psutil
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
