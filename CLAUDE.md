@@ -47,7 +47,6 @@ Processing pipeline: **PDF → Images → Component Detection → Dimension/Mate
 
 ### Other key modules
 
-- **`models/`** — data models: `Component`, `ComponentType` (enum), `ComponentDimensions`, `MaterialSpec`, `Coordinates`, `ProcessingResult`, `ValidationResult`, `SystemConfig`
 - **`models/configuration_manager.py`** — `ConfigurationManager`: loads config from JSON/YAML with env var overrides (`STEEL_PARSER_*` prefix)
 - **`interface/web_interface.py`** — `SteelDrawingParserInterface`: Gradio UI orchestrating the full pipeline
 - **`extractors/part_extractor.py`** — `PartExtractor`: original monolithic extractor, superseded by `ExtensiblePartExtractor`
@@ -57,12 +56,3 @@ Processing pipeline: **PDF → Images → Component Detection → Dimension/Mate
 - `config/system_config.yaml` — main system config (extraction params, web interface, logging)
 - `config/part_types.json` — component type definitions and detection parameters for the extensible extractor
 - Environment variables: `STEEL_PARSER_HOST`, `STEEL_PARSER_PORT`, `STEEL_PARSER_DEBUG`, `STEEL_PARSER_LOG_LEVEL`, `STEEL_PARSER_LOG_DIR`, `STEEL_PARSER_CONFIDENCE_THRESHOLD`
-
-## Tech Stack
-
-- Python 3.13 (strict requirement)
-- PyMuPDF (fitz), OpenCV, NumPy, Pillow for PDF/image processing
-- Gradio for web interface
-- pandas for CSV data handling
-- hypothesis for property-based testing
-- mypy in strict mode, black for formatting, flake8 + pylint for linting
