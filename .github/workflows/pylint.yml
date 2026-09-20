@@ -21,8 +21,9 @@ jobs:
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       run: |
-        npx @anthropic-ai/claude-code --version
-        npx @anthropic-ai/claude-code --help
+        npm install -g @anthropic-ai/claude-code
+        #npx @anthropic-ai/claude-code --help
+        claude -p "Hello!"
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v7
       with:
