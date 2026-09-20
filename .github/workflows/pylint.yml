@@ -13,6 +13,14 @@ jobs:
         python-version: ["3.13"]
     steps:
     - uses: actions/checkout@v6
+    - name: Run Restricted Claude Agent
+      uses: anthropics/claude-code-action@v1
+      with:
+        anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+        # The operational prompt
+        prompt: "Hello"
+        # Pass command line options here:
+        claude_args: "--version"
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v7
       with:
